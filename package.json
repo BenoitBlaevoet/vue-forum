@@ -1,0 +1,40 @@
+{
+  "name": "vue-forum",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:unit": "vitest --environment jsdom --root src/",
+    "test:e2e": "playwright test",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "pinia": "^2.0.23",
+    "vue": "^3.2.41",
+    "vue-router": "^4.1.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@playwright/test": "^1.27.1",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/builder-vite": "^0.2.5",
+    "@storybook/testing-library": "^0.0.13",
+    "@storybook/vue3": "^6.5.13",
+    "@vitejs/plugin-vue": "^3.1.2",
+    "@vue/test-utils": "^2.1.0",
+    "babel-loader": "^8.3.0",
+    "eslint": "^8.22.0",
+    "eslint-plugin-storybook": "^0.6.7",
+    "eslint-plugin-vue": "^9.3.0",
+    "jsdom": "^20.0.1",
+    "vite": "^3.1.8",
+    "vitest": "^0.24.3",
+    "vue-loader": "^16.8.3"
+  }
+}
