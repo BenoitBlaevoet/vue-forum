@@ -10,7 +10,8 @@ axios.defaults.baseURL = 'http://localhost:3000'
 import App from './App.vue'
 import router from './router'
 
-import './assets/main.css'
+import './assets/reset.css'
+import './assets/base.css'
 
 const pinia = createPinia()
 pinia.use(PiniaPluginPersistedstate)

@@ -1,9 +1,10 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import vDrawer from '../components/vDrawer.vue';
 </script>
 
 <template>
+  <vDrawer></vDrawer>
   <main>
-    <TheWelcome />
+    
   </main>
 </template>
