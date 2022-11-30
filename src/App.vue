@@ -1,15 +1,21 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import vHeader from './components/vHeader.vue'
-import vHeaderItem from './components/vHeaderItem.vue';
+import ForumHeader from './components/ForumHeader.vue'
+import ForumLogo from './components/ForumLogo.vue'
+import ForumBurger from './components/ForumBurger.vue'
+
+import { useDrawerStore } from '@/stores/drawerStore'
+const drawer = useDrawerStore()
 </script>
 
 <template>
-  <vHeader>
-    <vHeaderItem bgcolor="red" cols="5"></vHeaderItem>
-  </vHeader>
-
+  <ForumHeader>
+    <RouterLink :to="{name:'home'}"><ForumLogo/></RouterLink>
+    <ForumBurger flexEnd class="md:hidden"/>
+  </ForumHeader>
+  <main class="md:grid md:grid-cols-3">
   <RouterView />
+  </main>
 </template>
 
 <style>
@@ -23,23 +29,7 @@ import vHeaderItem from './components/vHeaderItem.vue';
   --text-color: black;
   --text-color-light: white;
 }
-
-.bg-p{
-  background-color: var(--primary);
-}
-.bg-pl{
-  background-color: var(--primary-light);
-}
-.bg-pd{
-  background-color: var(--primary-dark);
-}
-.bg-s{
-  background-color: var(--secondary);
-}
-.bg-sl{
-  background-color: var(--secondary-light);
-}
-.bg-sd{
-  background-color: var(--secondary-dark);
+main{
+  padding-top: 2rem;
 }
 </style>

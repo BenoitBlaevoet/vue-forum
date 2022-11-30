@@ -1,10 +1,31 @@
 <script setup>
-import vDrawer from '../components/vDrawer.vue';
+import ForumDrawer from '../components/ForumDrawer.vue';
+import ForumCard from '../components/ForumCard.vue';
 </script>
 
 <template>
-  <vDrawer></vDrawer>
-  <main>
+  <ForumDrawer>
     
-  </main>
+    <ForumSearch/>
+    
+    <ForumSpacer Text>Account</ForumSpacer>
+    <ForumList>
+      <li>lorem1</li>
+      <li>lorem1</li>
+      <li>lorem1</li>
+      <li>lorem1</li>
+      <li>lorem1</li>
+    </ForumList>
+    <ForumSpacer Text>Favorites Forum</ForumSpacer>
+    <ForumList>
+      <li>lorem1</li>
+      <li>lorem1</li>
+      <li>lorem1</li>
+      <li>lorem1</li>
+      <li>lorem1</li>
+    </ForumList>
+  </ForumDrawer>
+  <section>
+    <ForumCard title="This is not Lorem">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas, quidem.</ForumCard>
+  </section>
 </template>
