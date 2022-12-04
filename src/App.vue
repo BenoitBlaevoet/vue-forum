@@ -4,32 +4,31 @@ import ForumHeader from './components/ForumHeader.vue'
 import ForumLogo from './components/ForumLogo.vue'
 import ForumBurger from './components/ForumBurger.vue'
 
-import { useDrawerStore } from '@/stores/drawerStore'
-const drawer = useDrawerStore()
+// Allow us to init the dark theme is it's registered in the user preference
+import { useThemeStore } from '@/stores/themeStore'
+const theme = useThemeStore()
+theme.updateDom()
+
 </script>
 
-<template>
-  <ForumHeader>
-    <RouterLink :to="{name:'home'}"><ForumLogo/></RouterLink>
-    <ForumBurger flexEnd class="md:hidden"/>
-  </ForumHeader>
-  <main class="md:grid md:grid-cols-3">
-  <RouterView />
-  </main>
+<template >
+    <ForumHeader>
+      <RouterLink :to="{name:'home'}"><ForumLogo/></RouterLink>
+      <RouterLink :to="{name:'login'}" class="ml-auto self-center">Login</RouterLink>
+      <ForumBurger flexEnd class="md:hidden"/>
+    </ForumHeader>
+    <main 
+      class="  z-0
+        md:grid md:grid-cols-12 md:gap-4
+        
+      "
+    >
+      <RouterView />
+    </main>
 </template>
 
 <style>
-:root{
-  --primary: #019be5;
-  --primary-light:#63ccff;
-  --primary-dark:#006db3;
-  --secondary:#84ffff;
-  --secondary-light:#baffff;
-  --secondary-dark:#4bcbcc;
-  --text-color: black;
-  --text-color-light: white;
-}
-main{
-  padding-top: 2rem;
+html.dark{
+  color-scheme: dark;
 }
 </style>

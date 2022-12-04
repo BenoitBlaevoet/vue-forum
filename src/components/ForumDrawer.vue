@@ -1,14 +1,15 @@
 <template>
   <Transition name="slide-fade" >
-  <nav v-if="!drawer.isHidden || drawer.documentWidth > 768 "
+  <nav v-if="!drawer.isHidden || drawer.documentWidth >= 768 "
     id="navigation-drawer"
     class="
     flex flex-col align-center
     absolute md:relative
-    h-screen md:h-fit w-full md:w-48  
+    bg-white dark:bg-slate-800
+    h-screen md:h-fit w-full
     left-0 top-0 right-0 bottom-0
     pt-24 md:pt-2 md:mt-2
-    bg-white
+    2xl:pl-12 xl:pl-9 lg:pl-6
     z-40 md:z-auto"
   >
   <slot></slot>

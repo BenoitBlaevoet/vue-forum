@@ -1,10 +1,8 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { Axios } from 'axios'
 
-export const useLoginStore = defineStore(
-  'login',
-  async (email, password) => {
+export const useLoginStore = defineStore( 'login', () => {
     const user = ref("")
     
     const login = await Axios({
@@ -14,8 +12,4 @@ export const useLoginStore = defineStore(
     })
 
     return { user }
-  }, 
-  {
-    persist : true
-  }
-)
+})
