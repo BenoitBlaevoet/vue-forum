@@ -30,6 +30,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import jwt_decode from "jwt-decode";
 
 let formLogin = ref(null)
 let valid = ref(false)
@@ -60,8 +61,17 @@ const validate = async () => {
       },
       body: JSON.stringify(data)
     })
-    console.log(await res.json())
+    const user = await res.json()
+    console.log(user)
+    const decoded = jwt_decode(user.token.accessToken)
+    // const decodedr = jwt_decode(user.token.refreshToken)
+    const isExp = (decoded.exp - (Date.now()/1000))<0?true:false
+    console.log(await decoded)
+    console.log(Date.now()/1000)
+    // console.log(await decodedr)
+    console.log(isExp)
   }
+  
 }
 </script>
 
