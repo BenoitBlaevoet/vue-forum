@@ -1,6 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
+const ifAuthenticated = (to, from, next) => {
+  if (localStorage.getItem('token')) {
+    next();
+    return;
+  }
+  router.push({ 
+    name: 'login',
+    params: {
+      returnTo: to.path,
+      query: to.query,
+    },
+  });
+};
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -21,6 +35,14 @@ const router = createRouter({
       path: '/login',
       name:'login',
       component: () => import('@/views/LoginView.vue')
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: () => import('@/views/ProtectedView.vue'),
+      beforeEnter: (to, from, next) => {
+        ifAuthenticated(to, from, next)
+      },
     }
   ]
 })

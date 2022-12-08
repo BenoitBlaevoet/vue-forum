@@ -64,6 +64,7 @@ const validate = async () => {
     const user = await res.json()
     console.log(user)
     const decoded = jwt_decode(user.token.accessToken)
+    localStorage.setItem('token', user.token.accessToken)
     // const decodedr = jwt_decode(user.token.refreshToken)
     const isExp = (decoded.exp - (Date.now()/1000))<0?true:false
     console.log(await decoded)
